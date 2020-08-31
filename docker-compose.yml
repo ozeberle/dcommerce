@@ -1,0 +1,32 @@
+version: '3.1'
+
+services:
+  apache2_php_commerce:
+    image: dcommerce_apache2_php
+    container_name: apache2_php_commerce
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/var/www/html
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+  mysql_db_commerce:
+    image: mysql:5.7
+    container_name: mysql_db_commerce
+    ports:
+      - "3306:3306"
+    environment:
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_HOSTNAME: ${MYSQL_HOSTNAME}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ./config/db:/docker-entrypoint-initdb.d
+    links:
+      - apache2_php_commerce:apache2_php_commerce
