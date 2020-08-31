@@ -9,5 +9,8 @@ init:
 	docker-compose exec -T apache2_php_commerce sh /docker-entrypoint.sh init
 
 resetPassword:
-	docker-compose exec apache2_php vendor/bin/drush user-password admin 123456
+	docker-compose exec apache2_php_commerce vendor/bin/drush user-password admin 123456
 	@echo "New password: 123456"
+
+shell:
+    docker-compose exec apache2_php_commerce bash
