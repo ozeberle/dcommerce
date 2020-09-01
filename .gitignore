@@ -1,3 +1,5 @@
 .idea/
 .env
 src/vendor
+src/sites/default/files
+src/modules/contrib

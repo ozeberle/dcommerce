@@ -12,6 +12,7 @@ RUN apt-get update -y && apt-get install -y \
 
 RUN docker-php-ext-install gd
 RUN docker-php-ext-install pdo pdo_mysql zip
+RUN docker-php-ext-install bcmath
 
 COPY --chown=www-data:www-data src/* /var/www/html/
 
@@ -23,13 +24,6 @@ RUN composer update
 RUN composer require drush/drush
 
 COPY config/apache2/apache2.conf /etc/apache2
-#COPY config/php/uploads.ini /usr/local/php/conf.d
-
-#ENV DATABASE_NAME dcommerce
-#ENV DATABASE_HOSTNAME dcommerce
-#ENV DATABASE_PORT 3306
-#ENV DATABASE_USERNAME dcommerce
-#ENV DATABASE_PASSWORD dcommerce
 
 COPY docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
