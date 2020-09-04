@@ -170,3 +170,11 @@ drupal.vertical-tabs:
     - bootstrap/theme
     - core/jquery.once
     - core/drupal.form
+
+oz:
+  version: 1.x
+  css:
+    theme:
+      css/style.css: {}
+  js:
+    js/cuddly-slider.js: {}

@@ -20,6 +20,7 @@
         "drupal/admin_toolbar": "^2.3",
         "drupal/bootstrap": "^3.23",
         "drupal/bootstrap_mint": "^5.0",
+        "drupal/color_field": "^2.4",
         "drupal/commerce": "^2.20",
         "drupal/commerce_paypal": "^1.0@beta",
         "drupal/config_split": "^1.4",
